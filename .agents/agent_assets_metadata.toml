@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "vZCI0oagKPf_rhn0TmpXy"
+uri = "file://artifacts/uvmar-website/public/images/solar-array.png"
+type = "image"
+title = "solar panel array aerial"
+
+[[generated]]
+id = "KXiC4eiVCOnlkxgV4R6eV"
+uri = "file://artifacts/uvmar-website/public/images/rooftop-solar.png"
+type = "image"
+title = "rooftop solar installation"
+
+[[generated]]
+id = "Ll7EwrJHPXSb8MOr4E230"
+uri = "file://artifacts/uvmar-website/public/images/solar-workers.png"
+type = "image"
+title = "solar farm workers"
+
+[[generated]]
+id = "F73kk3I2o4XDTkl2lOQYN"
+uri = "file://artifacts/uvmar-website/public/images/solar-closeup.png"
+type = "image"
+title = "solar panels close-up"
