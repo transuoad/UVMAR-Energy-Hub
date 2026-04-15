@@ -275,3 +275,16 @@
     inset: -1px;
   }
 }
+
+/* iOS safe-area aware navbar + page-offset utilities */
+:root {
+  --navbar-h: 5rem; /* 80px = h-20 */
+}
+
+.navbar-safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.page-top-offset {
+  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+}

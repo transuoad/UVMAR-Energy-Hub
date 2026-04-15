@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 navbar-safe-top ${
         scrolled ? "bg-background/95 backdrop-blur-sm shadow-sm border-b" : "bg-transparent"
       }`}
     >

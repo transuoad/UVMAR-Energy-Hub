@@ -6,9 +6,9 @@ import { asset } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen pt-20">
+    <div className="flex flex-col min-h-screen page-top-offset">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative h-[90vh] min-h-[600px] flex items-start md:items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 opacity-40">
           <img 
             src={asset("/images/solar-array.png")} 
@@ -18,7 +18,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-4 z-10 relative">
+        <div className="container mx-auto px-4 z-10 relative pt-10 md:pt-0">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

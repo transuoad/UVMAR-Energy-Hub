@@ -15,7 +15,7 @@ export default function Gallery() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen pt-20">
+    <div className="flex flex-col min-h-screen page-top-offset">
       {/* Header */}
       <section className="py-24 bg-muted border-b border-border">
         <div className="container mx-auto px-4 text-center">

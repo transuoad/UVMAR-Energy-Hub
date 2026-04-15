@@ -57,7 +57,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen pt-20">
+    <div className="flex flex-col min-h-screen page-top-offset">
       {/* Hero Section */}
       <section className="relative py-24 bg-muted overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">

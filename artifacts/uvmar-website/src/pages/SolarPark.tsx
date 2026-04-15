@@ -6,7 +6,7 @@ import { asset } from "@/lib/utils";
 
 export default function SolarPark() {
   return (
-    <div className="flex flex-col min-h-screen pt-20">
+    <div className="flex flex-col min-h-screen page-top-offset">
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">

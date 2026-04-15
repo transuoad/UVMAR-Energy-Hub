@@ -6,7 +6,7 @@ import { asset } from "@/lib/utils";
 
 export default function Profile() {
   return (
-    <div className="flex flex-col min-h-screen pt-20">
+    <div className="flex flex-col min-h-screen page-top-offset">
       {/* Header */}
       <section className="py-20 bg-muted border-b border-border">
         <div className="container mx-auto px-4">
