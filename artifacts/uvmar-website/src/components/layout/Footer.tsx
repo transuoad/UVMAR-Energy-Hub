@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import logoPath from "@assets/Color_and_black@4x_1776244813263.jpg";
+import logoPath from "@assets/Color_and_black_4x-removebg-preview_1776250233659.png";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {

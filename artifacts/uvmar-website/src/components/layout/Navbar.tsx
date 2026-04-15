@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import logoPath from "@assets/Color_and_black@4x_1776244813263.jpg";
+import logoPath from "@assets/Color_and_black_4x-removebg-preview_1776250233659.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
