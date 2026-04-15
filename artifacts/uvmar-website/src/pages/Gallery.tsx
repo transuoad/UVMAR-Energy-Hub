@@ -2,15 +2,16 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function Gallery() {
   const images = [
-    { src: "/images/solar-array.png", alt: "Large Solar Array", span: "col-span-1 md:col-span-2 row-span-2" },
-    { src: "/images/rooftop-solar.png", alt: "Rooftop Solar Installation", span: "col-span-1 row-span-1" },
-    { src: "/images/solar-workers.png", alt: "Solar Workers", span: "col-span-1 row-span-1" },
-    { src: "/images/solar-closeup.png", alt: "Solar Panel Close-up", span: "col-span-1 md:col-span-2 row-span-1" },
-    { src: "/images/rooftop-solar.png", alt: "Commercial Rooftop", span: "col-span-1 row-span-1" },
-    { src: "/images/solar-array.png", alt: "Solar Farm", span: "col-span-1 row-span-1" },
+    { src: asset("/images/solar-array.png"), alt: "Large Solar Array", span: "col-span-1 md:col-span-2 row-span-2" },
+    { src: asset("/images/rooftop-solar.png"), alt: "Rooftop Solar Installation", span: "col-span-1 row-span-1" },
+    { src: asset("/images/solar-workers.png"), alt: "Solar Workers", span: "col-span-1 row-span-1" },
+    { src: asset("/images/solar-closeup.png"), alt: "Solar Panel Close-up", span: "col-span-1 md:col-span-2 row-span-1" },
+    { src: asset("/images/rooftop-solar.png"), alt: "Commercial Rooftop", span: "col-span-1 row-span-1" },
+    { src: asset("/images/solar-array.png"), alt: "Solar Farm", span: "col-span-1 row-span-1" },
   ];
 
   return (

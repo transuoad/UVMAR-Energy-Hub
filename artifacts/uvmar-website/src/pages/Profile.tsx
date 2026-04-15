@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Building2, Landmark, GraduationCap, ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function Profile() {
   return (
@@ -59,8 +60,8 @@ export default function Profile() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src="/images/solar-workers.png" alt="Team at work" className="w-full h-64 object-cover" />
-              <img src="/images/solar-closeup.png" alt="Solar Panels" className="w-full h-64 object-cover mt-12" />
+              <img src={asset("/images/solar-workers.png")} alt="Team at work" className="w-full h-64 object-cover" />
+              <img src={asset("/images/solar-closeup.png")} alt="Solar Panels" className="w-full h-64 object-cover mt-12" />
             </motion.div>
           </div>
         </div>

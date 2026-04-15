@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { MapPin, Zap, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function Projects() {
   const projects = [
@@ -12,7 +13,7 @@ export default function Projects() {
       location: "Arupukottai, Tamil Nadu",
       capacity: "15 MW",
       year: "March 2016",
-      image: "/images/solar-array.png"
+      image: asset("/images/solar-array.png")
     },
     {
       id: 2,
@@ -21,7 +22,7 @@ export default function Projects() {
       location: "Tuticorin, Tamil Nadu",
       capacity: "15 MW",
       year: "March 2016",
-      image: "/images/solar-array.png"
+      image: asset("/images/solar-array.png")
     },
     {
       id: 3,
@@ -30,7 +31,7 @@ export default function Projects() {
       location: "Dindigul, Tamil Nadu",
       capacity: "30 MW",
       year: "September 2016",
-      image: "/images/solar-array.png"
+      image: asset("/images/solar-array.png")
     },
     {
       id: 4,
@@ -39,7 +40,7 @@ export default function Projects() {
       location: "Arupukottai, Tamil Nadu",
       capacity: "100 MW",
       year: "March 2017",
-      image: "/images/solar-array.png"
+      image: asset("/images/solar-array.png")
     },
     {
       id: 5,
@@ -48,7 +49,7 @@ export default function Projects() {
       location: "Maharashtra",
       capacity: "2.5 MW",
       year: "2022",
-      image: "/images/rooftop-solar.png"
+      image: asset("/images/rooftop-solar.png")
     },
     {
       id: 6,
@@ -57,7 +58,7 @@ export default function Projects() {
       location: "India",
       capacity: "5 MW",
       year: "2023",
-      image: "/images/rooftop-solar.png"
+      image: asset("/images/rooftop-solar.png")
     }
   ];
 

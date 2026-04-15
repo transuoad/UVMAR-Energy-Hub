@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Factory, Sun, Zap, Wrench, FileCheck, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function Services() {
   const services = [
@@ -92,7 +93,7 @@ export default function Services() {
                     <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10" />
                     {/* Placeholder for service image - using the general ones provided */}
                     <img 
-                      src={idx % 2 === 0 ? "/images/rooftop-solar.png" : "/images/solar-array.png"} 
+                      src={idx % 2 === 0 ? asset("/images/rooftop-solar.png") : asset("/images/solar-array.png")} 
                       alt={service.title}
                       className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
                     />

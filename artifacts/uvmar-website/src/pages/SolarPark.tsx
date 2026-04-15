@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Sun, CheckCircle2, ArrowRight, TrendingUp, Handshake, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function SolarPark() {
   return (
@@ -9,7 +10,7 @@ export default function SolarPark() {
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
-          <img src="/images/solar-array.png" alt="Solar Park" className="w-full h-full object-cover" />
+          <img src={asset("/images/solar-array.png")} alt="Solar Park" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -133,7 +134,7 @@ export default function SolarPark() {
               viewport={{ once: true }}
               className="relative aspect-square md:aspect-auto md:h-full min-h-[400px] border border-border bg-muted overflow-hidden"
             >
-               <img src="/images/solar-array.png" alt="Solar Park Infrastructure" className="w-full h-full object-cover" />
+               <img src={asset("/images/solar-array.png")} alt="Solar Park Infrastructure" className="w-full h-full object-cover" />
             </motion.div>
 
             <motion.div

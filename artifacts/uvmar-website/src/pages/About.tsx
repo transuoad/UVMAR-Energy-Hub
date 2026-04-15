@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Target, Eye, ShieldCheck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { asset } from "@/lib/utils";
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
       <section className="relative py-24 bg-secondary text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute inset-0 bg-gradient-to-r from-secondary to-transparent z-10" />
-          <img src="/images/solar-array.png" alt="Solar Array" className="w-full h-full object-cover" />
+          <img src={asset("/images/solar-array.png")} alt="Solar Array" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div

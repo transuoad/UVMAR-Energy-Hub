@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Factory, Zap, Sun } from "lucide-react";
+import { asset } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 opacity-40">
           <img 
-            src="/images/solar-array.png" 
+            src={asset("/images/solar-array.png")} 
             alt="Large Solar Array" 
             className="w-full h-full object-cover"
           />
@@ -202,7 +203,7 @@ export default function Home() {
               className="relative h-[500px]"
             >
               <img 
-                src="/images/solar-workers.png" 
+                src={asset("/images/solar-workers.png")} 
                 alt="UVMAR Team" 
                 className="w-full h-full object-cover"
               />
