@@ -42,12 +42,12 @@ export default function Profile() {
                 </p>
                 <div className="pt-6 mt-6 border-t border-border grid grid-cols-2 gap-8">
                   <div>
-                    <div className="text-3xl font-black text-primary mb-2">100+ MW</div>
-                    <div className="font-medium text-sm uppercase tracking-wider">Installed Capacity</div>
+                    <div className="text-3xl font-black text-primary mb-2">1.5 GW+</div>
+                    <div className="font-medium text-sm uppercase tracking-wider">Operating Projects</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-black text-primary mb-2">Pan-India</div>
-                    <div className="font-medium text-sm uppercase tracking-wider">Operational Reach</div>
+                    <div className="text-3xl font-black text-primary mb-2">60+</div>
+                    <div className="font-medium text-sm uppercase tracking-wider">Corporate Clients</div>
                   </div>
                 </div>
               </div>

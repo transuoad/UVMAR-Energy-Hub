@@ -20,9 +20,9 @@ export default function About() {
             className="max-w-3xl"
           >
             <div className="text-primary font-bold tracking-wider uppercase mb-4 text-sm">Our Story</div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Pioneering Clean Energy Solutions</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">We do things differently</h1>
             <p className="text-xl text-gray-300 leading-relaxed">
-              Founded with a vision to accelerate India's transition to clean energy. We bring decades of combined experience to deliver world-class solar infrastructure.
+              Our innovative solutions make clean energy possible for households, businesses, property owners, and more. We are on a mission to provide energy to every corner of India.
             </p>
           </motion.div>
         </div>
@@ -61,7 +61,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Chairman's Message */}
+      {/* Our Story */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white p-12 md:p-16 border border-border relative">
@@ -72,40 +72,68 @@ export default function About() {
               viewport={{ once: true }}
               className="relative z-10"
             >
-              <h2 className="text-3xl font-bold mb-8">Chairman's Vision</h2>
+              <h2 className="text-3xl font-bold mb-8">We just don't give up</h2>
               <div className="prose prose-lg text-muted-foreground">
                 <p className="mb-6">
-                  "At UVMAR Clean Energy (formerly Aditya Energy), we recognize that the future of India's industrial growth is inextricably linked with sustainable energy practices. Our journey began with a simple but profound realization: building energy infrastructure is about building a legacy."
+                  We are on a mission to provide energy to every corner of India. Over the past decade, the cost of solar technology has fallen dramatically. New technologies promise to increase efficiency and lower costs further. Solar energy will soon be unbeatable compared to fossil fuels.
                 </p>
                 <p className="mb-6">
-                  "We are not just installing panels; we are empowering industries to become self-reliant, reducing carbon footprints, and contributing to the nation's ambitious goal of 500 GW renewable energy by 2030."
+                  Solar energy has come a long way in a decade. Back in 2010, the global market was small and highly dependent on subsidy regimes. Today, there are more than 115 gigawatts (GW) of solar installed across the world annually — more than all other generation technologies combined. It is also increasingly low cost, especially in sunnier regions where it has already become the lowest-cost form of new electricity generation.
                 </p>
                 <p>
-                  "Our commitment to engineering precision and ethical business practices ensures that every project we undertake stands as a testament to our quality and reliability."
+                  At UVMAR Clean Energy (formerly Aditya Energy), we are proud to be at the forefront of this transformation — building infrastructure that will power India for generations to come.
                 </p>
-              </div>
-              <div className="mt-10 pt-10 border-t border-border">
-                <div className="font-bold text-xl text-foreground">Leadership Team</div>
-                <div className="text-primary mt-1">UVMAR Clean Energy</div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Leadership Team */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Core Values</h2>
-            <p className="text-muted-foreground text-lg">The principles that guide our every decision and project.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Leadership Team</h2>
+            <p className="text-muted-foreground text-lg">They guided Aditya Energy — the backbone of our company.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {[
+              { name: "L Uday Metha", title: "Managing Partner" },
+              { name: "Uday Vinay Metha", title: "Managing Partner" },
+            ].map((leader, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="p-8 border border-border hover:border-primary transition-colors text-center"
+              >
+                <div className="w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold text-primary">{leader.name.charAt(0)}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">{leader.name}</h3>
+                <p className="text-primary font-medium text-sm uppercase tracking-wider">{leader.title}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Why UVMAR Clean Energy?</h2>
+            <p className="text-muted-foreground text-lg">We are at the top of the chart.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Excellence", desc: "Uncompromising quality in engineering, procurement, and construction." },
-              { title: "Integrity", desc: "Transparent operations, honest reporting, and ethical business practices." },
-              { title: "Sustainability", desc: "Commitment to long-term environmental health in all our endeavors." }
+              { title: "Personalized", desc: "We don't just sell products; we help you use them. We'll help you maximise your energy use so you may live your best life." },
+              { title: "Measured Results", desc: "We help companies achieve their goals, whether it's improving operations, cutting costs, or boosting profitability." },
+              { title: "Top Quality", desc: "We are committed to providing reliable, affordable energy and we're proud of it!" },
+              { title: "Experience", desc: "We're professionals who make sure you have the latest technology and services for your home or business." }
             ].map((value, i) => (
               <motion.div
                 key={i}
@@ -113,7 +141,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 border border-border hover:border-primary transition-colors text-center"
+                className="p-8 bg-white border border-border hover:border-primary transition-colors text-center"
               >
                 <ShieldCheck className="w-10 h-10 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-3">{value.title}</h3>

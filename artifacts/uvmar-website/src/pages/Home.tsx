@@ -28,11 +28,11 @@ export default function Home() {
               Premium EPC Solutions
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-              Building India's <br />
-              <span className="text-primary">Clean Energy</span> Future
+              Let's make an important<br />
+              change towards <span className="text-primary">the future.</span>
             </h1>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
-              UVMAR Clean Energy engineers, procures, and constructs world-class solar infrastructure designed to last decades.
+              Our innovative solutions make clean energy possible for households, businesses, property owners, and more.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-primary text-black hover:bg-primary/90 rounded-none h-14 px-8 text-lg font-medium">
@@ -51,20 +51,20 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-black/10">
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">100+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">MW Installed</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">45+</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Projects</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">200+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Projects Completed</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">60+</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Corporate Clients</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">15+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Years Experience</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">1.5 GW+</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Operating Projects</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Happy Clients</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">4+</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Awards Received</div>
             </div>
           </div>
         </div>
@@ -122,6 +122,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">What Our Clients Say</h2>
+            <p className="text-muted-foreground text-lg">Trusted by India's leading renewable energy developers and industrial companies.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "Our solar needs were fulfilled by Aditya Energy. The staff helped with property purchase, site approval, and solar panels. Our project benefited from their switchyard skills. We recommend Aditya Energy for renewable energy.",
+                company: "Hinduja Renewables",
+              },
+              {
+                quote: "We are thrilled to collaborate with Aditya Energy. They assist our small business in locating the greatest Transmission line Suppliers. We hope to continue working with them in the future because we had a wonderful experience.",
+                company: "Hild Energy",
+              },
+              {
+                quote: "Aditya Energy has performed admirably. They are highly competent and required minimal direction from us. I would recommend them to anyone who needs assistance obtaining utility approval for their projects.",
+                company: "ReNew Power",
+              }
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="bg-white p-8 border border-border hover:border-primary transition-colors relative"
+              >
+                <div className="text-5xl font-serif text-primary/20 leading-none mb-4">"</div>
+                <p className="text-muted-foreground leading-relaxed mb-8 italic">{t.quote}</p>
+                <div className="pt-6 border-t border-border">
+                  <div className="font-bold text-foreground">{t.company}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Trust Section */}
       <section className="py-24 bg-secondary text-white relative overflow-hidden">
         <div className="container mx-auto px-4">
@@ -132,17 +173,17 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                Trusted by Industry Leaders
+                We are on a mission to provide energy to every corner of India.
               </h2>
               <p className="text-lg text-gray-400 mb-8">
-                We've partnered with leading manufacturing plants, commercial buildings, hospitals, and educational institutions across Maharashtra, Gujarat, Rajasthan, and Madhya Pradesh.
+                Over the past decade, solar energy has come a long way. We've partnered with leading renewable energy developers, manufacturing plants, commercial buildings, hospitals, and educational institutions across India.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
-                  "Rigorous quality control and safety standards",
-                  "Proven track record of timely project delivery",
-                  "Comprehensive O&M support",
-                  "Expertise in complex regulatory approvals"
+                  "Personalized — we help you maximise your energy use",
+                  "Measured results — improving operations and cutting costs",
+                  "Top quality — reliable and affordable energy solutions",
+                  "Expertise in complex regulatory approvals and grid connectivity"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-300">
                     <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
@@ -166,9 +207,9 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-primary/20 backdrop-blur-xl border border-primary/30 p-6 flex flex-col justify-center">
-                <div className="text-4xl font-bold text-primary mb-2">15+</div>
-                <div className="text-sm font-medium text-white uppercase tracking-wider">Years of Excellence</div>
+              <div className="absolute -bottom-6 -left-6 w-56 bg-primary/20 backdrop-blur-xl border border-primary/30 p-6 flex flex-col justify-center">
+                <div className="text-4xl font-bold text-primary mb-2">1.5 GW+</div>
+                <div className="text-sm font-medium text-white uppercase tracking-wider">Operating Projects</div>
               </div>
             </motion.div>
           </div>

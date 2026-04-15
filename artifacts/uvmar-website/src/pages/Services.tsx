@@ -8,34 +8,50 @@ export default function Services() {
     {
       id: "rooftop",
       icon: Factory,
-      title: "Rooftop Solar Solutions",
-      capacity: "1kW to 10MW+",
-      desc: "Comprehensive EPC services for industrial and commercial rooftops. We transform unused roof space into productive energy assets.",
+      title: "Roof Top Solar",
+      capacity: "Residential & Commercial",
+      desc: "We do Roof Top for both residential and commercial clients which include system design, equipment procurement, project management, solar panel installation, and reliable support.",
       features: ["Full EPC execution", "Net metering assistance", "Subsidy & documentation support", "Structural integrity assessment"]
     },
     {
-      id: "ground",
+      id: "epc",
       icon: Zap,
-      title: "Ground-Mounted Solar",
-      capacity: "Utility Scale",
-      desc: "Large-scale solar installations designed for maximum yield and reliability, perfect for industries with available land.",
-      features: ["Rigorous site assessment", "Land approvals & clearance", "Grid connectivity infrastructure", "Complete commissioning"]
+      title: "EPC (Engineering, Procurement & Construction)",
+      capacity: "End-to-End",
+      desc: "We provide end-to-end services such as consultative sales, system design, equipment procurement, project management, solar panel installation, and reliable support should there be maintenance or warranty claims.",
+      features: ["Consultative sales", "System design & engineering", "Equipment procurement", "Installation & commissioning"]
     },
     {
-      id: "parks",
+      id: "land",
       icon: Sun,
-      title: "Solar Parks",
-      capacity: "Dedicated Infrastructure",
-      desc: "Plug-and-play solar park infrastructure allowing businesses to procure renewable energy without the hassle of land acquisition.",
-      features: ["Ready land & grid connection", "Transmission lines", "Captive & Group Captive models", "Regulatory compliance"]
+      title: "Land Procurement",
+      capacity: "5 to 500 Acres",
+      desc: "We offer a wide range of land sites for purchase or lease, with sizes ranging from 5 to 500 acres. We consider various factors like proximity to a substation and evacuation feasibility to select the most suitable site for each project.",
+      features: ["Site identification & evaluation", "Proximity to substation assessment", "Evacuation feasibility study", "Purchase or lease options"]
+    },
+    {
+      id: "transmission",
+      icon: Wrench,
+      title: "Construction of Transmission Line",
+      capacity: "110/66/33/11 kV",
+      desc: "We specialise in constructing and installing power lines for evacuation infrastructure, covering a range of voltage levels from 110/66/33/11 kilovolts. Our team can handle every aspect of the process, from land site to substation.",
+      features: ["110/66/33/11 kV voltage levels", "Full evacuation infrastructure", "Land site to substation", "End-to-end project management"]
+    },
+    {
+      id: "approvals",
+      icon: FileCheck,
+      title: "Complete Project Approvals",
+      capacity: "Regulatory Compliance",
+      desc: "Our staff is dedicated to acquiring all necessary approvals and meeting regulatory requirements in order to guarantee a simplified and stress-free experience for our customers.",
+      features: ["Land & site approvals", "Right of Way permissions", "Utility approvals", "Paperwork & mutation handling"]
     },
     {
       id: "om",
       icon: Wrench,
-      title: "Operations & Maintenance",
-      capacity: "24/7 Monitoring",
-      desc: "Ensuring your solar assets perform at peak efficiency throughout their 25+ year lifespan.",
-      features: ["Preventive maintenance", "Real-time performance monitoring", "Annual Maintenance Contracts (AMC)", "Rapid fault resolution"]
+      title: "Post Commissioning & O&M",
+      capacity: "Ongoing Support",
+      desc: "Let us handle the operation and maintenance of your power plant with our post commissioning and billing adjustment services. Our team can manage every aspect of the process.",
+      features: ["Post commissioning support", "Monthly billing adjustments", "Preventive maintenance", "Performance monitoring"]
     }
   ];
 

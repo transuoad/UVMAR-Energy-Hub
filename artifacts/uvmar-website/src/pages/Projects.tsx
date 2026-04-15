@@ -7,57 +7,57 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Manufacturing Plant Solar Rooftop",
-      type: "Rooftop Solar",
-      location: "Pune, Maharashtra",
-      capacity: "2.5 MW",
-      year: "2023",
-      image: "/images/rooftop-solar.png"
+      title: "Pullaniackenpatti Village Solar Project",
+      type: "Ground-Mounted Solar",
+      location: "Arupukottai, Tamil Nadu",
+      capacity: "15 MW",
+      year: "March 2016",
+      image: "/images/solar-array.png"
     },
     {
       id: 2,
-      title: "Industrial Estate Ground-Mounted",
-      type: "Ground-Mounted",
-      location: "Nashik, Maharashtra",
-      capacity: "5 MW",
-      year: "2022",
+      title: "Ottanatham Village Solar Project",
+      type: "Ground-Mounted Solar",
+      location: "Tuticorin, Tamil Nadu",
+      capacity: "15 MW",
+      year: "March 2016",
       image: "/images/solar-array.png"
     },
     {
       id: 3,
-      title: "Solapur Solar Park",
-      type: "Solar Park",
-      location: "Solapur, Maharashtra",
-      capacity: "20 MW",
-      year: "2021",
+      title: "Viralipatti Village Solar Project",
+      type: "Ground-Mounted Solar",
+      location: "Dindigul, Tamil Nadu",
+      capacity: "30 MW",
+      year: "September 2016",
       image: "/images/solar-array.png"
     },
     {
       id: 4,
-      title: "Commercial Complex Rooftop",
-      type: "Rooftop Solar",
-      location: "Mumbai, Maharashtra",
-      capacity: "800 kW",
-      year: "2023",
-      image: "/images/rooftop-solar.png"
+      title: "Thoppalakarai Village Solar Project",
+      type: "Ground-Mounted Solar",
+      location: "Arupukottai, Tamil Nadu",
+      capacity: "100 MW",
+      year: "March 2017",
+      image: "/images/solar-array.png"
     },
     {
       id: 5,
-      title: "Food Processing Plant Ground-Mounted",
-      type: "Ground-Mounted",
-      location: "Aurangabad, Maharashtra",
-      capacity: "3 MW",
+      title: "Industrial Rooftop Solar Installation",
+      type: "Rooftop Solar",
+      location: "Maharashtra",
+      capacity: "2.5 MW",
       year: "2022",
-      image: "/images/solar-array.png"
+      image: "/images/rooftop-solar.png"
     },
     {
       id: 6,
-      title: "Agri-Industrial Zone Solar Park",
-      type: "Solar Park",
-      location: "Latur, Maharashtra",
-      capacity: "10 MW",
-      year: "2020",
-      image: "/images/solar-array.png"
+      title: "Commercial Complex EPC Project",
+      type: "EPC",
+      location: "India",
+      capacity: "5 MW",
+      year: "2023",
+      image: "/images/rooftop-solar.png"
     }
   ];
 
