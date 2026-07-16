@@ -144,7 +144,6 @@ export default function Projects() {
           </motion.div>
         </div>
       </section>
-
       {/* Stats Strip */}
       <section className="py-10 bg-primary text-black border-b-4 border-[#cba984]">
         <div className="container mx-auto px-4">
@@ -168,7 +167,6 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
       {/* Filter Bar */}
       <section className="py-6 bg-muted border-b border-border sticky top-20 z-20 backdrop-blur-sm">
         <div className="container mx-auto px-4">
@@ -211,7 +209,6 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
       {/* Projects Grid */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -277,11 +274,10 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
       {/* States Covered */}
       <section className="py-14 bg-muted border-t border-border">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">States We Operate In</h3>
+          <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">States We'VE OperateD In</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {states.map(state => (
               <span key={state} className="bg-white border border-border px-5 py-2 text-sm font-semibold text-foreground">
@@ -291,7 +287,6 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="py-20 bg-secondary text-white text-center">
         <div className="container mx-auto px-4">
