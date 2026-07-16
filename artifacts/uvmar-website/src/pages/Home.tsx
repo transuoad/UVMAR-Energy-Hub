@@ -1,32 +1,29 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Factory, Zap, Sun, MapPin, Calendar } from "lucide-react";
+import { ArrowRight, CheckCircle2, Factory, Zap, Sun, MapPin } from "lucide-react";
 import { asset } from "@/lib/utils";
 
 const FEATURED_PROJECTS = [
   {
-    title: "Thoppalakarai Village Solar Project",
-    location: "Arupukottai, Tamil Nadu",
+    title: "ReNew Power",
+    location: "Chennai, Tamil Nadu",
     capacity: "100 MW",
-    year: "March 2017",
     type: "Ground-Mounted",
     image: asset("/images/solar-array.png"),
   },
   {
-    title: "Kutch Solar Power Plant",
-    location: "Kutch, Gujarat",
-    capacity: "200 MW",
-    year: "2018",
+    title: "Prathama Solarconnect Energy Private Limited",
+    location: "Sivaganga, Tamil Nadu",
+    capacity: "55 MW",
     type: "Ground-Mounted",
     image: asset("/images/solar-array.png"),
   },
   {
-    title: "Pavagada Solar Project",
-    location: "Pavagada, Karnataka",
-    capacity: "80 MW",
-    year: "2020",
-    type: "Ground-Mounted",
+    title: "Michelin India Private Limited",
+    location: "Chennai, Tamil Nadu",
+    capacity: "3.3 MW",
+    type: "Rooftop",
     image: asset("/images/rooftop-solar.png"),
   },
 ];
@@ -79,19 +76,19 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-black/10">
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">57+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">44+</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Projects</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">60+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">40+</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Corporate Clients</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">1.5 GW+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Operating Projects</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">1,130+ MW</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Capacity Installed</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">9+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">5</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">States Covered</div>
             </div>
           </div>
@@ -160,7 +157,7 @@ export default function Home() {
               <div className="w-12 h-1 bg-primary" />
             </div>
             <Link href="/projects" className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary hover:opacity-80 transition-opacity shrink-0">
-              View All 57+ Projects <ArrowRight className="ml-2 h-4 w-4" />
+              View All 44+ Projects <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
 
@@ -199,10 +196,6 @@ export default function Home() {
                     <div className="flex items-center gap-2">
                       <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
                       {project.location}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-3.5 h-3.5 text-primary shrink-0" />
-                      Commissioned {project.year}
                     </div>
                   </div>
                 </div>
@@ -300,11 +293,11 @@ export default function Home() {
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
               <div className="absolute -bottom-6 -left-6 w-56 bg-primary/20 backdrop-blur-xl border border-primary/30 p-6 flex flex-col justify-center">
-                <div className="text-4xl font-bold text-primary mb-1">1.5 GW+</div>
-                <div className="text-xs font-semibold text-white uppercase tracking-wider">Operating Projects</div>
+                <div className="text-4xl font-bold text-primary mb-1">1,130+ MW</div>
+                <div className="text-xs font-semibold text-white uppercase tracking-wider">Capacity Installed</div>
               </div>
               <div className="absolute -top-4 -right-4 bg-[#cba984]/10 border border-[#cba984]/30 backdrop-blur-xl p-4 hidden md:flex flex-col justify-center items-center text-center">
-                <div className="text-2xl font-bold text-[#cba984] mb-1">9+</div>
+                <div className="text-2xl font-bold text-[#cba984] mb-1">5</div>
                 <div className="text-xs font-semibold text-white/70 uppercase tracking-wider">States</div>
               </div>
             </motion.div>
