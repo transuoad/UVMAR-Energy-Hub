@@ -1,8 +1,35 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Factory, Zap, Sun } from "lucide-react";
+import { ArrowRight, CheckCircle2, Factory, Zap, Sun, MapPin, Calendar } from "lucide-react";
 import { asset } from "@/lib/utils";
+
+const FEATURED_PROJECTS = [
+  {
+    title: "Thoppalakarai Village Solar Project",
+    location: "Arupukottai, Tamil Nadu",
+    capacity: "100 MW",
+    year: "March 2017",
+    type: "Ground-Mounted",
+    image: asset("/images/solar-array.png"),
+  },
+  {
+    title: "Kutch Solar Power Plant",
+    location: "Kutch, Gujarat",
+    capacity: "200 MW",
+    year: "2018",
+    type: "Ground-Mounted",
+    image: asset("/images/solar-array.png"),
+  },
+  {
+    title: "Pavagada Solar Project",
+    location: "Pavagada, Karnataka",
+    capacity: "80 MW",
+    year: "2020",
+    type: "Ground-Mounted",
+    image: asset("/images/rooftop-solar.png"),
+  },
+];
 
 export default function Home() {
   return (
@@ -10,22 +37,22 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[600px] flex items-start md:items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 opacity-40">
-          <img 
-            src={asset("/images/solar-array.png")} 
-            alt="Large Solar Array" 
+          <img
+            src={asset("/images/solar-array.png")}
+            alt="Large Solar Array"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
         </div>
-        
+
         <div className="container mx-auto px-4 z-10 relative pt-10 md:pt-0">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            <div className="inline-block px-4 py-1.5 mb-6 border border-primary/30 bg-primary/10 backdrop-blur-sm text-primary uppercase tracking-widest text-xs font-semibold">
+            <div className="inline-block px-4 py-1.5 mb-6 border border-primary/40 bg-primary/10 backdrop-blur-sm text-primary uppercase tracking-widest text-xs font-semibold">
               Premium EPC Solutions
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
@@ -48,11 +75,11 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-primary text-black">
+      <section className="py-16 bg-primary text-black border-b-4 border-[#cba984]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-black/10">
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">45+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">57+</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Projects</div>
             </div>
             <div className="text-center px-4">
@@ -64,8 +91,8 @@ export default function Home() {
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Operating Projects</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">4+</div>
-              <div className="text-sm font-medium uppercase tracking-wider opacity-80">Awards Received</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">9+</div>
+              <div className="text-sm font-medium uppercase tracking-wider opacity-80">States Covered</div>
             </div>
           </div>
         </div>
@@ -75,7 +102,8 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">End-to-End Solar Capabilities</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">End-to-End Solar Capabilities</h2>
+            <div className="w-12 h-1 bg-[#cba984] mx-auto mb-6" />
             <p className="text-muted-foreground text-lg">
               From concept to commissioning, we deliver comprehensive solar solutions tailored to industrial, commercial, and utility-scale requirements.
             </p>
@@ -87,22 +115,22 @@ export default function Home() {
                 icon: Factory,
                 title: "Rooftop Solar",
                 desc: "Turnkey EPC solutions for industrial and commercial rooftops, optimizing unused space for maximum yield.",
-                link: "/services"
+                link: "/services",
               },
               {
                 icon: Sun,
                 title: "Solar Parks",
                 desc: "Plug-and-play infrastructure for captive and third-party sale models with complete regulatory support.",
-                link: "/solar-park"
+                link: "/solar-park",
               },
               {
                 icon: Zap,
                 title: "Ground-Mounted",
                 desc: "Utility-scale installations with rigorous site assessment, engineering, and grid connectivity.",
-                link: "/services"
-              }
+                link: "/services",
+              },
             ].map((service, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -123,11 +151,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Featured Projects */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Featured Projects</h2>
+              <div className="w-12 h-1 bg-primary" />
+            </div>
+            <Link href="/projects" className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary hover:opacity-80 transition-opacity shrink-0">
+              View All 57+ Projects <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {FEATURED_PROJECTS.map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="group bg-white border border-border overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3 z-20 flex gap-2">
+                    <span className="bg-primary text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                      {project.type}
+                    </span>
+                  </div>
+                  {/* Prominent MW badge */}
+                  <div className="absolute bottom-3 right-3 z-20">
+                    <div className="bg-black/80 text-[#cba984] font-black text-2xl px-4 py-2 leading-none">
+                      {project.capacity}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-base mb-3 line-clamp-2 leading-snug">{project.title}</h3>
+                  <div className="space-y-1.5 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                      {project.location}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-3.5 h-3.5 text-primary shrink-0" />
+                      Commissioned {project.year}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+            <div className="w-12 h-1 bg-[#cba984] mx-auto mb-6" />
             <p className="text-muted-foreground text-lg">Trusted by India's leading renewable energy developers and industrial companies.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -143,7 +233,7 @@ export default function Home() {
               {
                 quote: "Aditya Energy has performed admirably. They are highly competent and required minimal direction from us. I would recommend them to anyone who needs assistance obtaining utility approval for their projects.",
                 company: "ReNew Power",
-              }
+              },
             ].map((t, i) => (
               <motion.div
                 key={i}
@@ -153,10 +243,11 @@ export default function Home() {
                 transition={{ delay: i * 0.15 }}
                 className="bg-white p-8 border border-border hover:border-primary transition-colors relative"
               >
-                <div className="text-5xl font-serif text-primary/20 leading-none mb-4">"</div>
-                <p className="text-muted-foreground leading-relaxed mb-8 italic">{t.quote}</p>
-                <div className="pt-6 border-t border-border">
-                  <div className="font-bold text-foreground">{t.company}</div>
+                <div className="text-5xl font-serif text-[#cba984]/40 leading-none mb-4">"</div>
+                <p className="text-muted-foreground leading-relaxed mb-8 italic text-sm">{t.quote}</p>
+                <div className="pt-5 border-t border-border flex items-center gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                  <div className="font-bold text-foreground text-sm">{t.company}</div>
                 </div>
               </motion.div>
             ))}
@@ -184,11 +275,11 @@ export default function Home() {
                   "Personalized — we help you maximise your energy use",
                   "Measured results — improving operations and cutting costs",
                   "Top quality — reliable and affordable energy solutions",
-                  "Expertise in complex regulatory approvals and grid connectivity"
+                  "Expertise in complex regulatory approvals and grid connectivity",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-300">
-                    <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
-                    <span>{item}</span>
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -202,15 +293,19 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative h-[500px]"
             >
-              <img 
-                src={asset("/images/solar-workers.png")} 
-                alt="UVMAR Team" 
+              <img
+                src={asset("/images/solar-workers.png")}
+                alt="UVMAR Team"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
               <div className="absolute -bottom-6 -left-6 w-56 bg-primary/20 backdrop-blur-xl border border-primary/30 p-6 flex flex-col justify-center">
-                <div className="text-4xl font-bold text-primary mb-2">1.5 GW+</div>
-                <div className="text-sm font-medium text-white uppercase tracking-wider">Operating Projects</div>
+                <div className="text-4xl font-bold text-primary mb-1">1.5 GW+</div>
+                <div className="text-xs font-semibold text-white uppercase tracking-wider">Operating Projects</div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-[#cba984]/10 border border-[#cba984]/30 backdrop-blur-xl p-4 hidden md:flex flex-col justify-center items-center text-center">
+                <div className="text-2xl font-bold text-[#cba984] mb-1">9+</div>
+                <div className="text-xs font-semibold text-white/70 uppercase tracking-wider">States</div>
               </div>
             </motion.div>
           </div>

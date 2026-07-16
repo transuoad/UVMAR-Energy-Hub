@@ -49,6 +49,7 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-accent-border: var(--sidebar-accent-border);
   --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-gold: hsl(var(--gold));
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
@@ -72,39 +73,41 @@
 
   --background: 34 33% 97%; /* #f9f5f0 */
   --foreground: 0 0% 0%; /* #000000 */
-  --border: 34 20% 85%;
+  --border: 155 15% 84%;
   --card: 0 0% 100%;
   --card-foreground: 0 0% 0%;
-  --card-border: 34 20% 85%;
+  --card-border: 155 15% 84%;
   --sidebar: 34 33% 97%;
   --sidebar-foreground: 0 0% 0%;
-  --sidebar-border: 34 20% 85%;
-  --sidebar-primary: 31 43% 65%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 34 20% 90%;
+  --sidebar-border: 155 15% 84%;
+  --sidebar-primary: 155 40% 48%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 155 20% 92%;
   --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-ring: 31 43% 65%;
+  --sidebar-ring: 155 40% 48%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 0%;
-  --popover-border: 34 20% 85%;
+  --popover-border: 155 15% 84%;
 
-  /* Primary: #cba984 -> HSL: 31 43% 65% */
-  --primary: 31 43% 65%;
+  /* Primary: green #46a07e -> HSL: 155 40% 48% */
+  --primary: 155 40% 48%;
   --primary-foreground: 0 0% 0%;
+  /* Gold accent: #cba984 -> HSL: 31 43% 65% */
+  --gold: 31 43% 65%;
   --secondary: 0 0% 10%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 34 20% 92%;
+  --muted: 155 15% 93%;
   --muted-foreground: 0 0% 40%;
-  --accent: 34 33% 90%;
+  --accent: 155 20% 90%;
   --accent-foreground: 0 0% 0%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 34 20% 80%;
-  --ring: 31 43% 65%;
-  --chart-1: 31 43% 65%;
-  --chart-2: 0 0% 20%;
-  --chart-3: 34 20% 70%;
+  --input: 155 15% 82%;
+  --ring: 155 40% 48%;
+  --chart-1: 155 40% 48%;
+  --chart-2: 31 43% 65%;
+  --chart-3: 155 25% 65%;
   --chart-4: 31 30% 50%;
   --chart-5: 0 0% 40%;
 
@@ -166,22 +169,23 @@
   --popover-foreground: 34 33% 97%;
   --popover-border: 0 0% 20%;
 
-  --primary: 31 43% 65%;
+  --primary: 155 40% 55%;
   --primary-foreground: 0 0% 0%;
+  --gold: 31 43% 65%;
   --secondary: 0 0% 20%;
   --secondary-foreground: 34 33% 97%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 60%;
-  --accent: 0 0% 15%;
+  --accent: 155 20% 20%;
   --accent-foreground: 34 33% 97%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 34 33% 97%;
 
   --input: 0 0% 20%;
-  --ring: 31 43% 65%;
-  --chart-1: 31 43% 65%;
-  --chart-2: 0 0% 40%;
-  --chart-3: 0 0% 60%;
+  --ring: 155 40% 55%;
+  --chart-1: 155 40% 55%;
+  --chart-2: 31 43% 65%;
+  --chart-3: 155 25% 65%;
   --chart-4: 31 30% 50%;
   --chart-5: 0 0% 80%;
 
