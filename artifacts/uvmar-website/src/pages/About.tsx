@@ -94,13 +94,14 @@ export default function About() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Leadership Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
+            <div className="w-12 h-1 bg-[#cba984] mx-auto mb-6" />
             <p className="text-muted-foreground text-lg">They guided Aditya Energy — the backbone of our company.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {[
-              { name: "L Uday Metha", title: "Managing Partner" },
-              { name: "Uday Vinay Metha", title: "Managing Partner" },
+              { name: "L Uday Mehta", title: "Managing Partner", image: asset("/images/leader-l-uday-mehta.png") },
+              { name: "Uday Vinay Mehta", title: "Managing Partner", image: asset("/images/leader-uday-vinay-mehta.png") },
             ].map((leader, i) => (
               <motion.div
                 key={i}
@@ -108,13 +109,20 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="p-8 border border-border hover:border-primary transition-colors text-center"
+                className="border border-border hover:border-primary transition-colors text-center overflow-hidden group"
               >
-                <div className="w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary">{leader.name.charAt(0)}</span>
+                <div className="aspect-[3/4] relative overflow-hidden bg-muted">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                    <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
+                    <p className="text-primary font-semibold text-xs uppercase tracking-widest">{leader.title}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{leader.name}</h3>
-                <p className="text-primary font-medium text-sm uppercase tracking-wider">{leader.title}</p>
               </motion.div>
             ))}
           </div>
