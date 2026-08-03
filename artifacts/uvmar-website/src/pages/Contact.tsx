@@ -107,7 +107,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Phone</h3>
-                    <p className="text-muted-foreground">+91 98765 43210<br />+91 98765 43211</p>
+                    <p className="text-muted-foreground">+91 93848 12375</p>
                   </div>
                 </div>
 

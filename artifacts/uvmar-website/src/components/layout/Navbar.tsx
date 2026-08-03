@@ -37,7 +37,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50">
-          <img src={logoPath} alt="UVMAR Clean Energy" className="h-12 object-contain" />
+          <img src={logoPath} alt="UVMAR Clean Energy" className="h-16 object-contain" />
         </Link>
 
         {/* Desktop Nav */}

@@ -110,6 +110,35 @@ export default function Profile() {
         </div>
       </section>
 
+      {/* Company Brochure */}
+      <section className="py-20 bg-muted border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto bg-white border border-border shadow-sm p-10 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-primary/10 border border-primary/20 rounded-none">
+              <Download className="w-9 h-9 text-primary" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl font-bold mb-2">Company Brochure</h2>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Download or view our comprehensive company brochure — featuring project portfolio, capabilities, certifications, and client references.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                <Button asChild size="lg" className="bg-primary text-black hover:bg-primary/90 rounded-none h-12 px-7 font-medium">
+                  <a href="/brochure/uvmar-company-brochure.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <Download className="w-4 h-4" /> Download PDF
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black rounded-none h-12 px-7 font-medium">
+                  <a href="/brochure/uvmar-company-brochure.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    View Brochure
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Download Profile CTA */}
       <section className="py-24 bg-primary text-black">
         <div className="container mx-auto px-4 text-center">

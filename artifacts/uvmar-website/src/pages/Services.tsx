@@ -32,8 +32,8 @@ const services = [
     capacity: "5 to 500 Acres",
     desc: "We offer a wide range of land sites for purchase or lease, with sizes ranging from 5 to 500 acres. We consider various factors like proximity to a substation and evacuation feasibility to select the most suitable site for each project.",
     features: ["Site identification & evaluation", "Proximity to substation assessment", "Evacuation feasibility study", "Purchase or lease options"],
-    image: asset("/images/solar-array.png"),
-    imageAlt: "Aerial View of Solar Site",
+    image: asset("/images/gallery/land-clearing.jpg"),
+    imageAlt: "Land Clearing for Solar Site",
   },
   {
     id: "transmission",
@@ -42,8 +42,8 @@ const services = [
     capacity: "110/66/33/11 kV",
     desc: "We specialise in constructing and installing power lines for evacuation infrastructure, covering a range of voltage levels from 110/66/33/11 kilovolts. Our team can handle every aspect of the process, from land site to substation.",
     features: ["110/66/33/11 kV voltage levels", "Full evacuation infrastructure", "Land site to substation", "End-to-end project management"],
-    image: asset("/images/solar-closeup.png"),
-    imageAlt: "Electrical Infrastructure",
+    image: asset("/images/gallery/bay-extension-grid.jpg"),
+    imageAlt: "Transmission Line Infrastructure",
   },
   {
     id: "approvals",

@@ -76,7 +76,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-black/10">
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">44+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Projects</div>
             </div>
             <div className="text-center px-4">
@@ -84,7 +84,7 @@ export default function Home() {
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Corporate Clients</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-bold mb-2">1,130+ MW</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">1.5 GW</div>
               <div className="text-sm font-medium uppercase tracking-wider opacity-80">Capacity Installed</div>
             </div>
             <div className="text-center px-4">
@@ -157,7 +157,7 @@ export default function Home() {
               <div className="w-12 h-1 bg-primary" />
             </div>
             <Link href="/projects" className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary hover:opacity-80 transition-opacity shrink-0">
-              View All 44+ Projects <ArrowRight className="ml-2 h-4 w-4" />
+              View All 50+ Projects <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
 
@@ -293,7 +293,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
               <div className="absolute -bottom-6 -left-6 w-56 bg-primary/20 backdrop-blur-xl border border-primary/30 p-6 flex flex-col justify-center">
-                <div className="text-4xl font-bold text-primary mb-1">1,130+ MW</div>
+                <div className="text-4xl font-bold text-primary mb-1">1.5 GW</div>
                 <div className="text-xs font-semibold text-white uppercase tracking-wider">Capacity Installed</div>
               </div>
               <div className="absolute -top-4 -right-4 bg-[#cba984]/10 border border-[#cba984]/30 backdrop-blur-xl p-4 hidden md:flex flex-col justify-center items-center text-center">

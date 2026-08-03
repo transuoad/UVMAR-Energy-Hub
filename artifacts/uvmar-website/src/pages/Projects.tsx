@@ -12,7 +12,7 @@ const IMAGES = {
   closeup: asset("/images/solar-closeup.png"),
 };
 
-type ProjectType = "Ground-Mounted" | "Rooftop";
+type ProjectType = "Ground-Mounted" | "Rooftop" | "Liaisoning";
 type ProjectStatus = "Completed" | "Ongoing";
 
 interface Project {
@@ -77,9 +77,17 @@ const ALL_PROJECTS: Project[] = [
   { id: 42, client: "Royal Welding Wires Private Limited", type: "Rooftop", capacity: 300, unit: "KW", location: "Chengalpattu, Tamil Nadu", status: "Completed", image: IMAGES.rooftop, desc: "300 KW rooftop on a welding consumables manufacturing plant near Chennai." },
   { id: 43, client: "Anand Jain School", type: "Rooftop", capacity: 10, unit: "KW", location: "Chennai, Tamil Nadu", status: "Completed", image: IMAGES.rooftop, desc: "10 KW educational institution solar installation — helping students learn about clean energy." },
   { id: 44, client: "Shasun Jain College", type: "Rooftop", capacity: 42, unit: "KW", location: "Chennai, Tamil Nadu", status: "Completed", image: IMAGES.rooftop, desc: "42 KW campus solar providing daytime power to classrooms and administrative blocks." },
+
+  // ── LIAISONING · COMPLETED ───────────────────────────────────────────────
+  { id: 45, client: "Harsha Abakus Solar (NLC India – TNEB Grid Connectivity)", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "End-to-end government and utility liaison for 100 MW grid connectivity approvals — TNEB, CEIG, and land mutation." },
+  { id: 46, client: "Hild Energy (TNEB Bay Extension & 110 kV Pooling Substation)", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Liaison for bay extension approvals and 110 kV pooling substation clearances across multiple authorities." },
+  { id: 47, client: "Prathama Solarconnect Energy (TNEB & Revenue Dept)", type: "Liaisoning", capacity: 55, unit: "MW", location: "Sivaganga, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Revenue department land mutation, patta transfer, and TNEB interconnection approvals for 55 MW project." },
+  { id: 48, client: "Clean Max Enviro Energy – Right of Way Approvals", type: "Liaisoning", capacity: 50, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Right of Way permissions for transmission corridor across multiple village revenue records — pooling substation connectivity." },
+  { id: 49, client: "UVM Enterprises – Haryana DHBVN Grid Connectivity", type: "Liaisoning", capacity: 40, unit: "MW", location: "Haryana", status: "Completed", image: IMAGES.ground, desc: "Complete DHBVN grid connectivity liaison, CEIG approvals, and net metering registration for 40 MW Haryana plant." },
+  { id: 50, client: "ITC Limited – Captive Power Open Access Registration", type: "Liaisoning", capacity: 12, unit: "MW", location: "Dindigul, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Open access registration, banking agreement, and TANGEDCO approvals for ITC's 12 MW captive solar installation." },
 ];
 
-const TYPE_FILTERS = ["All", "Ground-Mounted", "Rooftop"] as const;
+const TYPE_FILTERS = ["All", "Ground-Mounted", "Rooftop", "Liaisoning"] as const;
 const STATUS_FILTERS = ["All Status", "Completed", "Ongoing"] as const;
 type TypeFilter = typeof TYPE_FILTERS[number];
 type StatusFilter = typeof STATUS_FILTERS[number];
