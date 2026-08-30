@@ -1,28 +1,30 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Target, Eye, ShieldCheck, Zap } from "lucide-react";
+import { Target, Eye, ArrowUpRight, Zap, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { asset } from "@/lib/utils";
 
 export default function About() {
   return (
-    <div className="flex flex-col min-h-screen page-top-offset">
+    <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 bg-secondary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary to-transparent z-10" />
-          <img src={asset("/images/solar-array.png")} alt="Solar Array" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative pt-32 pb-24 bg-background border-b border-border overflow-hidden">
+        <div className="absolute inset-0 structural-grid opacity-40 pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <div className="text-primary font-bold tracking-wider uppercase mb-4 text-sm">Our Story</div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">We do things differently</h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-12 h-[2px] bg-gold block" />
+              <span className="text-gold uppercase tracking-widest text-xs font-bold">Our Story</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-display font-medium mb-8 leading-[1.1] tracking-tight">
+              We do things<br />differently.
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl">
               Our innovative solutions make clean energy possible for households, businesses, property owners, and more. We are on a mission to provide energy to every corner of India.
             </p>
           </motion.div>
@@ -30,31 +32,32 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-24 bg-card border-b border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-12 border border-border"
+              className="bg-background p-10 md:p-12 border border-border"
             >
-              <Target className="w-12 h-12 text-primary mb-6" />
-              <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <Target className="w-10 h-10 text-primary mb-8" strokeWidth={1.5} />
+              <h2 className="text-2xl font-display font-medium mb-4">Our Mission</h2>
+              <p className="text-muted-foreground leading-relaxed">
                 To provide reliable, efficient, and cost-effective renewable energy solutions that empower businesses and communities while protecting our environment for future generations.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-primary text-black p-12"
+              transition={{ delay: 0.1 }}
+              className="bg-secondary text-secondary-foreground p-10 md:p-12"
             >
-              <Eye className="w-12 h-12 mb-6" />
-              <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-              <p className="text-lg leading-relaxed">
+              <Eye className="w-10 h-10 text-primary mb-8" strokeWidth={1.5} />
+              <h2 className="text-2xl font-display font-medium mb-4">Our Vision</h2>
+              <p className="text-secondary-foreground/70 leading-relaxed">
                 To be India's most trusted partner in the clean energy transition, recognized for our engineering excellence, transparent practices, and enduring infrastructure.
               </p>
             </motion.div>
@@ -62,43 +65,40 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white p-12 md:p-16 border border-border relative">
-            <Zap className="absolute top-12 left-12 w-16 h-16 text-primary/10" />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative z-10"
-            >
-              <h2 className="text-3xl font-bold mb-8">We just don't give up</h2>
-              <div className="prose prose-lg text-muted-foreground">
-                <p className="mb-6">
-                  We are on a mission to provide energy to every corner of India. Over the past decade, the cost of solar technology has fallen dramatically. New technologies promise to increase efficiency and lower costs further. Solar energy will soon be unbeatable compared to fossil fuels.
-                </p>
-                <p className="mb-6">
-                  Solar energy has come a long way in a decade. Back in 2010, the global market was small and highly dependent on subsidy regimes. Today, there are more than 115 gigawatts (GW) of solar installed across the world annually — more than all other generation technologies combined. It is also increasingly low cost, especially in sunnier regions where it has already become the lowest-cost form of new electricity generation.
-                </p>
-                <p>
-                  At UVMAR Clean Energy (formerly Aditya Energy), we are proud to be at the forefront of this transformation — building infrastructure that will power India for generations to come.
-                </p>
-              </div>
-            </motion.div>
+      {/* Our Story text block */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-12">
+              <Zap className="w-12 h-12 text-gold mb-6" strokeWidth={1} />
+              <h2 className="text-3xl md:text-4xl font-display font-medium mb-8">We just don't give up</h2>
+            </div>
+            <div className="prose prose-lg prose-neutral max-w-none text-muted-foreground font-light leading-relaxed">
+              <p className="mb-6">
+                We are on a mission to provide energy to every corner of India. Over the past decade, the cost of solar technology has fallen dramatically. New technologies promise to increase efficiency and lower costs further. Solar energy will soon be unbeatable compared to fossil fuels.
+              </p>
+              <p className="mb-6">
+                Solar energy has come a long way in a decade. Back in 2010, the global market was small and highly dependent on subsidy regimes. Today, there are more than 115 gigawatts (GW) of solar installed across the world annually — more than all other generation technologies combined. It is also increasingly low cost, especially in sunnier regions where it has already become the lowest-cost form of new electricity generation.
+              </p>
+              <p>
+                At <strong>UVMAR Clean Energy</strong> (formerly Aditya Energy), we are proud to be at the forefront of this transformation — building infrastructure that will power India for generations to come.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
-            <div className="w-12 h-1 bg-[#cba984] mx-auto mb-6" />
-            <p className="text-muted-foreground text-lg">They guided Aditya Energy — the backbone of our company.</p>
+      <section className="py-24 bg-muted border-y border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div className="max-w-xl">
+              <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">Leadership</h2>
+              <p className="text-muted-foreground text-lg">The strategic backbone of UVMAR Energy, guiding our vision for India's renewable future.</p>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
             {[
               { name: "L Uday Mehta", title: "Managing Partner", image: asset("/images/leader-l-uday-mehta.png") },
               { name: "Uday Vinay Mehta", title: "Managing Partner", image: asset("/images/leader-uday-vinay-mehta.png") },
@@ -108,21 +108,18 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="border border-border hover:border-primary transition-colors text-center overflow-hidden group"
+                transition={{ delay: i * 0.1 }}
+                className="group"
               >
-                <div className="aspect-[3/4] relative overflow-hidden bg-muted">
+                <div className="aspect-[4/5] overflow-hidden bg-border/50 border border-border mb-6">
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top mix-blend-multiply opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-                    <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
-                    <p className="text-primary font-semibold text-xs uppercase tracking-widest">{leader.title}</p>
-                  </div>
                 </div>
+                <h3 className="text-2xl font-display font-medium mb-2">{leader.name}</h3>
+                <p className="text-primary font-bold uppercase tracking-widest text-xs">{leader.title}</p>
               </motion.div>
             ))}
           </div>
@@ -130,44 +127,34 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Why UVMAR Clean Energy?</h2>
-            <p className="text-muted-foreground text-lg">We are at the top of the chart.</p>
-          </div>
-
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-display font-medium mb-16 text-center">Why UVMAR Clean Energy?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Personalized", desc: "We don't just sell products; we help you use them. We'll help you maximise your energy use so you may live your best life." },
-              { title: "Measured Results", desc: "We help companies achieve their goals, whether it's improving operations, cutting costs, or boosting profitability." },
-              { title: "Top Quality", desc: "We are committed to providing reliable, affordable energy and we're proud of it!" },
-              { title: "Experience", desc: "We're professionals who make sure you have the latest technology and services for your home or business." }
+              { title: "Personalized", desc: "We help you maximise your energy use so you may optimize your specific operations." },
+              { title: "Measured Results", desc: "We help companies achieve goals: improving operations, cutting costs, boosting profitability." },
+              { title: "Top Quality", desc: "We are committed to providing reliable, robust infrastructure using Tier-1 components." },
+              { title: "Experience", desc: "Our professional engineering teams handle complex EPC and regulatory challenges effortlessly." }
             ].map((value, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 bg-white border border-border hover:border-primary transition-colors text-center"
-              >
-                <ShieldCheck className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                <p className="text-muted-foreground">{value.desc}</p>
-              </motion.div>
+              <div key={i} className="p-8 border border-border bg-card">
+                <CheckCircle2 className="w-8 h-8 text-gold mb-6" strokeWidth={1.5} />
+                <h3 className="text-lg font-display font-medium mb-3">{value.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
       
       {/* CTA */}
-      <section className="py-20 bg-secondary text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to transition to clean energy?</h2>
-          <p className="text-gray-400 mb-10 max-w-2xl mx-auto text-lg">Partner with UVMAR Clean Energy for reliable, high-performance solar infrastructure.</p>
-          <Button asChild size="lg" className="bg-primary text-black hover:bg-primary/90 rounded-none h-14 px-8 text-lg font-medium">
-            <Link href="/contact">Get in Touch <ArrowRight className="ml-2 h-5 w-5" /></Link>
+      <section className="py-24 bg-secondary text-secondary-foreground text-center relative overflow-hidden">
+        <div className="absolute inset-0 structural-grid-dark opacity-30 pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">Invest in Enduring Infrastructure</h2>
+          <p className="text-secondary-foreground/70 mb-10 max-w-2xl mx-auto text-lg font-light">Partner with UVMAR Clean Energy for reliable, high-performance solar assets.</p>
+          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none h-14 px-10 text-sm uppercase tracking-widest font-bold">
+            <Link href="/contact">Contact Our Engineers <ArrowUpRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>

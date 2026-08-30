@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { MapPin, Zap, CheckCircle2, Clock, ArrowRight, Filter } from "lucide-react";
+import { MapPin, Zap, CheckCircle2, Clock, Filter, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { asset } from "@/lib/utils";
 
@@ -79,12 +79,12 @@ const ALL_PROJECTS: Project[] = [
   { id: 44, client: "Shasun Jain College", type: "Rooftop", capacity: 42, unit: "KW", location: "Chennai, Tamil Nadu", status: "Completed", image: IMAGES.rooftop, desc: "42 KW campus solar providing daytime power to classrooms and administrative blocks." },
 
   // ── LIAISONING · COMPLETED ───────────────────────────────────────────────
-  { id: 45, client: "Harsha Abakus Solar (NLC India – TNEB Grid Connectivity)", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "End-to-end government and utility liaison for 100 MW grid connectivity approvals — TNEB, CEIG, and land mutation." },
-  { id: 46, client: "Hild Energy (TNEB Bay Extension & 110 kV Pooling Substation)", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Liaison for bay extension approvals and 110 kV pooling substation clearances across multiple authorities." },
-  { id: 47, client: "Prathama Solarconnect Energy (TNEB & Revenue Dept)", type: "Liaisoning", capacity: 55, unit: "MW", location: "Sivaganga, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Revenue department land mutation, patta transfer, and TNEB interconnection approvals for 55 MW project." },
-  { id: 48, client: "Clean Max Enviro Energy – Right of Way Approvals", type: "Liaisoning", capacity: 50, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Right of Way permissions for transmission corridor across multiple village revenue records — pooling substation connectivity." },
-  { id: 49, client: "UVM Enterprises – Haryana DHBVN Grid Connectivity", type: "Liaisoning", capacity: 40, unit: "MW", location: "Haryana", status: "Completed", image: IMAGES.ground, desc: "Complete DHBVN grid connectivity liaison, CEIG approvals, and net metering registration for 40 MW Haryana plant." },
-  { id: 50, client: "ITC Limited – Captive Power Open Access Registration", type: "Liaisoning", capacity: 12, unit: "MW", location: "Dindigul, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Open access registration, banking agreement, and TANGEDCO approvals for ITC's 12 MW captive solar installation." },
+  { id: 45, client: "Harsha Abakus Solar", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "End-to-end government and utility liaison for 100 MW grid connectivity approvals — TNEB, CEIG, and land mutation." },
+  { id: 46, client: "Hild Energy", type: "Liaisoning", capacity: 100, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Liaison for bay extension approvals and 110 kV pooling substation clearances across multiple authorities." },
+  { id: 47, client: "Prathama Solarconnect Energy", type: "Liaisoning", capacity: 55, unit: "MW", location: "Sivaganga, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Revenue department land mutation, patta transfer, and TNEB interconnection approvals for 55 MW project." },
+  { id: 48, client: "Clean Max Enviro Energy", type: "Liaisoning", capacity: 50, unit: "MW", location: "Virudhunagar, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Right of Way permissions for transmission corridor across multiple village revenue records — pooling substation connectivity." },
+  { id: 49, client: "UVM Enterprises", type: "Liaisoning", capacity: 40, unit: "MW", location: "Haryana", status: "Completed", image: IMAGES.ground, desc: "Complete DHBVN grid connectivity liaison, CEIG approvals, and net metering registration for 40 MW Haryana plant." },
+  { id: 50, client: "ITC Limited", type: "Liaisoning", capacity: 12, unit: "MW", location: "Dindigul, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "Open access registration, banking agreement, and TANGEDCO approvals for ITC's 12 MW captive solar installation." },
 ];
 
 const TYPE_FILTERS = ["All", "Ground-Mounted", "Rooftop", "Liaisoning"] as const;
@@ -121,6 +121,7 @@ export default function Projects() {
     "All": ALL_PROJECTS.length,
     "Ground-Mounted": ALL_PROJECTS.filter(p => p.type === "Ground-Mounted").length,
     "Rooftop": ALL_PROJECTS.filter(p => p.type === "Rooftop").length,
+    "Liaisoning": ALL_PROJECTS.filter(p => p.type === "Liaisoning").length,
   }), []);
 
   const statusCounts = useMemo(() => ({
@@ -132,97 +133,100 @@ export default function Projects() {
   const states = ["Tamil Nadu", "Karnataka", "Haryana", "Delhi", "Goa"];
 
   return (
-    <div className="flex flex-col min-h-screen page-top-offset">
+    <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <section className="py-20 bg-secondary text-white border-b border-white/10">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative pt-32 pb-20 bg-secondary text-secondary-foreground border-b border-border overflow-hidden">
+        <div className="absolute inset-0 structural-grid-dark opacity-30 pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto"
           >
-            <div className="inline-block px-4 py-1.5 mb-6 border border-primary/40 bg-primary/10 text-primary uppercase tracking-widest text-xs font-semibold">
-              Portfolio
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="w-12 h-[2px] bg-primary block" />
+              <span className="text-primary uppercase tracking-widest text-xs font-bold">Track Record</span>
+              <span className="w-12 h-[2px] bg-primary block" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Projects</h1>
-            <p className="text-xl text-gray-400 leading-relaxed">
-              A complete showcase of ground-mounted and rooftop solar installations executed across India.
+            <h1 className="text-5xl md:text-7xl font-display font-medium mb-8 leading-[1.1] tracking-tight">
+              Projects Portfolio
+            </h1>
+            <p className="text-xl text-secondary-foreground/70 leading-relaxed font-light">
+              A comprehensive directory of utility-scale and rooftop solar installations engineered and executed across India.
             </p>
           </motion.div>
         </div>
       </section>
+
       {/* Stats Strip */}
-      <section className="py-10 bg-primary text-black border-b-4 border-[#cba984]">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-black/10">
-            <div className="px-4">
-              <div className="text-3xl md:text-4xl font-black mb-1">{ALL_PROJECTS.length}+</div>
-              <div className="text-xs font-bold uppercase tracking-widest opacity-70">Projects Delivered</div>
+      <section className="bg-background border-b border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+            <div className="py-8 px-4 text-center">
+              <div className="text-4xl font-display font-medium mb-1">{ALL_PROJECTS.length}</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Projects Delivered</div>
             </div>
-            <div className="px-4">
-              <div className="text-3xl md:text-4xl font-black mb-1">{Math.round(totalMW).toLocaleString()}+ MW</div>
-              <div className="text-xs font-bold uppercase tracking-widest opacity-70">Capacity Installed</div>
+            <div className="py-8 px-4 text-center">
+              <div className="text-4xl font-display font-medium mb-1">{Math.round(totalMW).toLocaleString()}+ <span className="text-xl">MW</span></div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Capacity Installed</div>
             </div>
-            <div className="px-4">
-              <div className="text-3xl md:text-4xl font-black mb-1">{states.length}</div>
-              <div className="text-xs font-bold uppercase tracking-widest opacity-70">States</div>
+            <div className="py-8 px-4 text-center">
+              <div className="text-4xl font-display font-medium mb-1">{states.length}</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">States Covered</div>
             </div>
-            <div className="px-4">
-              <div className="text-3xl md:text-4xl font-black mb-1">{statusCounts["Completed"]}</div>
-              <div className="text-xs font-bold uppercase tracking-widest opacity-70">Completed Projects</div>
+            <div className="py-8 px-4 text-center">
+              <div className="text-4xl font-display font-medium mb-1">{statusCounts["Completed"]}</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Completed Assets</div>
             </div>
           </div>
         </div>
       </section>
+
       {/* Filter Bar */}
-      <section className="py-6 bg-muted border-b border-border sticky top-20 z-20 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-3 justify-center items-center">
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-semibold uppercase tracking-wider shrink-0">
-              <Filter className="w-3.5 h-3.5" /> Type:
-            </span>
-            {TYPE_FILTERS.map(f => (
-              <button
-                key={f}
-                onClick={() => setTypeFilter(f)}
-                className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all border ${
-                  typeFilter === f
-                    ? "bg-primary text-black border-primary"
-                    : "bg-white text-muted-foreground border-border hover:border-primary hover:text-primary"
-                }`}
-              >
-                {f} ({typeCounts[f as keyof typeof typeCounts]})
-              </button>
-            ))}
-            <div className="w-px h-5 bg-border mx-1 hidden md:block" />
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-semibold uppercase tracking-wider shrink-0">
-              Status:
-            </span>
-            {STATUS_FILTERS.map(f => (
-              <button
-                key={f}
-                onClick={() => setStatusFilter(f)}
-                className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all border ${
-                  statusFilter === f
-                    ? f === "Ongoing"
-                      ? "bg-[#cba984] text-black border-[#cba984]"
-                      : "bg-primary text-black border-primary"
-                    : "bg-white text-muted-foreground border-border hover:border-primary hover:text-primary"
-                }`}
-              >
-                {f} {f !== "All Status" && `(${statusCounts[f as keyof typeof statusCounts]})`}
-              </button>
-            ))}
+      <section className="py-6 bg-card border-b border-border sticky top-16 z-30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-6 justify-between items-center">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {TYPE_FILTERS.map(f => (
+                <button
+                  key={f}
+                  onClick={() => setTypeFilter(f)}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors border ${
+                    typeFilter === f
+                      ? "bg-foreground text-background border-foreground"
+                      : "bg-background text-muted-foreground border-border hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  {f} <span className="opacity-60 ml-1">({typeCounts[f as keyof typeof typeCounts]})</span>
+                </button>
+              ))}
+            </div>
+            <div className="w-px h-8 bg-border hidden md:block" />
+            <div className="flex flex-wrap gap-2 justify-center">
+              {STATUS_FILTERS.map(f => (
+                <button
+                  key={f}
+                  onClick={() => setStatusFilter(f)}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors border ${
+                    statusFilter === f
+                      ? f === "Ongoing"
+                        ? "bg-gold text-background border-gold"
+                        : "bg-primary text-background border-primary"
+                      : "bg-background text-muted-foreground border-border hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  {f} {f !== "All Status" && <span className="opacity-60 ml-1">({statusCounts[f as keyof typeof statusCounts]})</span>}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
       {/* Projects Grid */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-sm text-muted-foreground mb-8 text-center">
-            Showing <span className="font-bold text-foreground">{filtered.length}</span> projects
-          </div>
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project, i) => (
               <motion.div
@@ -231,48 +235,44 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: Math.min(i * 0.04, 0.4) }}
-                className="group border border-border bg-white overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300"
+                className="group border border-border bg-card flex flex-col hover:border-foreground transition-colors"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted border-b border-border">
                   <img
                     src={project.image}
                     alt={project.client}
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply group-hover:grayscale-0 group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700 group-hover:scale-105"
                   />
-                  {/* Type badge */}
-                  <div className="absolute top-3 left-3 z-20">
-                    <span className="bg-primary text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-background text-foreground border border-border text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm">
                       {project.type}
                     </span>
                   </div>
-                  {/* Status badge */}
-                  <div className="absolute top-3 right-3 z-20">
+                  <div className="absolute top-4 right-4">
                     {project.status === "Completed" ? (
-                      <span className="bg-black/70 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3 text-primary" /> Done
+                      <span className="bg-primary text-background text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 flex items-center gap-1.5 shadow-sm">
+                        <CheckCircle2 className="w-3 h-3" /> Done
                       </span>
                     ) : (
-                      <span className="bg-[#cba984] text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 flex items-center gap-1">
+                      <span className="bg-gold text-background text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 flex items-center gap-1.5 shadow-sm">
                         <Clock className="w-3 h-3" /> Ongoing
                       </span>
                     )}
                   </div>
-                  {/* Capacity */}
-                  <div className="absolute bottom-3 right-3 z-20">
-                    <div className="bg-black/80 text-[#cba984] font-black text-lg px-3 py-1.5 leading-none">
+                  <div className="absolute bottom-4 right-4">
+                    <div className="bg-foreground text-background font-display font-medium text-xl px-4 py-2 shadow-sm">
                       {capacityLabel(project)}
                     </div>
                   </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-sm font-bold mb-2 line-clamp-2 leading-snug">{project.client}</h3>
-                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.desc}</p>
-                  <div className="pt-3 border-t border-border">
-                    <div className="flex items-center text-muted-foreground text-xs">
-                      <MapPin className="w-3.5 h-3.5 mr-2 text-primary shrink-0" /> {project.location}
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-lg font-display font-medium mb-3 leading-snug">{project.client}</h3>
+                  <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed font-light">{project.desc}</p>
+                  <div className="mt-auto pt-4 border-t border-border grid grid-cols-2 gap-4">
+                    <div className="flex items-center text-muted-foreground text-xs font-medium">
+                      <MapPin className="w-3.5 h-3.5 mr-2 text-primary shrink-0" /> <span className="truncate">{project.location}</span>
                     </div>
-                    <div className="flex items-center text-muted-foreground text-xs mt-1.5">
+                    <div className="flex items-center text-muted-foreground text-xs font-medium">
                       <Zap className="w-3.5 h-3.5 mr-2 text-primary shrink-0" /> {capacityLabel(project)} Capacity
                     </div>
                   </div>
@@ -280,28 +280,31 @@ export default function Projects() {
               </motion.div>
             ))}
           </div>
+          
+          {filtered.length === 0 && (
+            <div className="text-center py-20 border border-border bg-card">
+              <p className="text-muted-foreground text-lg">No projects found matching your criteria.</p>
+              <Button 
+                variant="outline" 
+                onClick={() => { setTypeFilter("All"); setStatusFilter("All Status"); }}
+                className="mt-4 rounded-none uppercase tracking-widest text-xs font-bold"
+              >
+                Clear Filters
+              </Button>
+            </div>
+          )}
         </div>
       </section>
-      {/* States Covered */}
-      <section className="py-14 bg-muted border-t border-border">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">States We'VE OperateD In</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {states.map(state => (
-              <span key={state} className="bg-white border border-border px-5 py-2 text-sm font-semibold text-foreground">
-                {state}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+
       {/* CTA */}
-      <section className="py-20 bg-secondary text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-3">Ready to be our next project?</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">Our engineering team is ready to evaluate your site and propose an optimized solar solution.</p>
-          <Button asChild size="lg" className="bg-primary text-black hover:bg-primary/90 rounded-none h-14 px-8 text-lg font-medium">
-            <Link href="/contact">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Link>
+      <section className="py-24 bg-primary text-primary-foreground text-center">
+        <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-display font-medium mb-6">Ready to execute your next project?</h2>
+          <p className="mb-10 max-w-2xl mx-auto text-lg opacity-90 font-light">
+            Our engineering team is ready to evaluate your site and propose an optimized infrastructure solution.
+          </p>
+          <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90 rounded-none h-14 px-10 text-sm uppercase tracking-widest font-bold">
+            <Link href="/contact">Request a Quote <ArrowUpRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>
