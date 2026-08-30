@@ -8,7 +8,6 @@ import logoPath from "@assets/Color_and_black_4x-removebg-preview_1776250233659.
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/profile", label: "Profile" },
   { href: "/services", label: "Services" },
   { href: "/solar-park", label: "Solar Park" },
   { href: "/projects", label: "Projects" },

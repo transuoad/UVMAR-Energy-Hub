@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { Redirect, Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { useEffect, useLayoutEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +8,6 @@ import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
-import Profile from "@/pages/Profile";
 import SolarPark from "@/pages/SolarPark";
 import Projects from "@/pages/Projects";
 import Gallery from "@/pages/Gallery";
@@ -43,7 +42,9 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile">
+          <Redirect to="/about" replace />
+        </Route>
         <Route path="/solar-park" component={SolarPark} />
         <Route path="/projects" component={Projects} />
         <Route path="/gallery" component={Gallery} />
