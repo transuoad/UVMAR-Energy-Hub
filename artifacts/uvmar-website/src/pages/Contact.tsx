@@ -15,9 +15,21 @@ const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Valid phone number is required"),
+  leadGeneration: z.string().min(1, "Please select an enquiry purpose"),
   service: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message is required")
 });
+
+const leadGenerationOptions = [
+  { value: "quote", label: "Quote", description: "Pricing request for solar installation" },
+  { value: "site-survey", label: "Site Survey", description: "On-site technical assessment request" },
+  { value: "consultation", label: "Consultation", description: "General discussion on sizing, savings, financing, etc." },
+  { value: "feasibility-study", label: "Feasibility Study", description: "Technical/financial viability study for commercial or solar park projects" },
+  { value: "callback", label: "Callback", description: "Request for a phone call from our team" },
+  { value: "product-information", label: "Product Information", description: "Enquiry about products, OEMs, or technology partners" },
+  { value: "amc-om-support", label: "AMC / O&M Support", description: "Maintenance/service request for existing customers" },
+  { value: "partnership-dealer-enquiry", label: "Partnership / Dealer Enquiry", description: "Vendors, EPC contractors, dealers" },
+] as const;
 
 export default function Contact() {
   const { toast } = useToast();
@@ -25,7 +37,7 @@ export default function Contact() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", email: "", phone: "", service: "", message: "" }
+    defaultValues: { name: "", email: "", phone: "", leadGeneration: "", service: "", message: "" }
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -184,11 +196,39 @@ export default function Contact() {
 
                   <FormField
                     control={form.control}
+                    name="leadGeneration"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-xs uppercase tracking-widest font-bold text-muted-foreground">Lead Generation</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="rounded-none border-border bg-background h-12 focus:ring-primary focus:border-primary">
+                              <SelectValue placeholder="Select Enquiry Purpose" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="rounded-none border-border">
+                            {leadGenerationOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value} className="py-2">
+                                <div className="flex flex-col gap-0.5">
+                                  <span>{option.label}</span>
+                                  <span className="text-xs text-muted-foreground">{option.description}</span>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
                     name="service"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-xs uppercase tracking-widest font-bold text-muted-foreground">Service Sector</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger className="rounded-none border-border bg-background h-12 focus:ring-primary focus:border-primary">
                               <SelectValue placeholder="Select Requirement" />
