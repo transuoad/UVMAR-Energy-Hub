@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import logoPath from "@assets/Color_and_black_4x-removebg-preview_1776250233659.png";
-import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -61,11 +61,29 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-secondary-foreground/80 text-sm">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>+91 93848 12375</span>
+                <a href="tel:+91444600660" className="hover:text-primary transition-colors">0444600660</a>
+              </li>
+              <li className="flex items-center gap-3 text-secondary-foreground/80 text-sm">
+                <MessageCircle className="w-4 h-4 text-primary shrink-0" />
+                <a
+                  href="https://wa.me/919384812375"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  +91 93848 12375
+                </a>
               </li>
               <li className="flex items-center gap-3 text-secondary-foreground/80 text-sm">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <span>info@uvmar.com</span>
+                <a href="mailto:info@uvmar.in" className="hover:text-primary transition-colors">info@uvmar.in</a>
+              </li>
+              <li className="flex items-start gap-3 text-secondary-foreground/80 text-sm">
+                <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span className="flex flex-col gap-1">
+                  <a href="mailto:Sadam@uvmar.in" className="hover:text-primary transition-colors">Sadam@uvmar.in</a>
+                  <a href="mailto:mahesh@uvmar.in" className="hover:text-primary transition-colors">mahesh@uvmar.in</a>
+                </span>
               </li>
             </ul>
           </div>

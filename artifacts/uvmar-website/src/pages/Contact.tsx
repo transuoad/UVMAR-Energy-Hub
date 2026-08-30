@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, MessageCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -117,16 +117,62 @@ export default function Contact() {
                 <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
                   <Phone className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Phone</h3>
-                    <p className="text-muted-foreground text-sm">+91 93848 12375</p>
+                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Landline</h3>
+                    <a
+                      href="tel:+91444600660"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                    >
+                      0444600660
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
+                  <MessageCircle className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">WhatsApp</h3>
+                    <a
+                      href="https://wa.me/919384812375"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                    >
+                      +91 93848 12375
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
                   <Mail className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
                   <div>
-                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Email</h3>
-                    <p className="text-muted-foreground text-sm">info@uvmar.com<br />sales@uvmar.com</p>
+                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">General Email</h3>
+                    <a
+                      href="mailto:info@uvmar.in"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                    >
+                      info@uvmar.in
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
+                  <Mail className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Sales Email</h3>
+                    <div className="flex flex-col items-start gap-1 text-sm">
+                      <a
+                        href="mailto:Sadam@uvmar.in"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        Sadam@uvmar.in
+                      </a>
+                      <a
+                        href="mailto:mahesh@uvmar.in"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        mahesh@uvmar.in
+                      </a>
+                    </div>
                   </div>
                 </div>
 
