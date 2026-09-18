@@ -23,6 +23,7 @@ interface Project {
   unit: "MW" | "KW";
   location: string;
   status: ProjectStatus;
+  year?: number;
   image: string;
   desc: string;
 }
@@ -57,14 +58,14 @@ const ALL_PROJECTS: Project[] = [
   { id: 26, client: "Adithyas Renewables Private Limited", type: "Ground-Mounted", capacity: 3, unit: "MW", location: "Pudukkottai, Tamil Nadu", status: "Completed", image: IMAGES.ground, desc: "3 MW solar installation for an independent power developer in Tamil Nadu's Pudukkottai district." },
 
   // ── GROUND-MOUNTED · ONGOING ───────────────────────────────────────────────
-  { id: 27, client: "Torrent Urja 22 Private Limited", type: "Ground-Mounted", capacity: 15, unit: "MW", location: "Viluppuram, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "15 MW plant currently under construction for Torrent's growing South India renewables portfolio." },
-  { id: 28, client: "TrueRE Surya Private Limited", type: "Ground-Mounted", capacity: 100, unit: "MW", location: "Tuticorin, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "100 MW large-scale project underway — set to become one of UVMAR's largest commissions." },
-  { id: 29, client: "UVMAR Green Energie 9 Private Limited", type: "Ground-Mounted", capacity: 3, unit: "MW", location: "Viluppuram, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "3 MW plant under UVMAR's own development pipeline in Viluppuram district." },
-  { id: 30, client: "Torrent Urja 35 Private Limited", type: "Ground-Mounted", capacity: 3, unit: "MW", location: "Ramanathapuram, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "3 MW solar project in Ramanathapuram, expanding Torrent's captive generation capacity." },
-  { id: 31, client: "Jain Green Technologies Private Limited", type: "Ground-Mounted", capacity: 7, unit: "MW", location: "Ramanathapuram, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "7 MW plant currently in construction phase — scheduled for commissioning in 2025." },
-  { id: 32, client: "Ultron Solar Park", type: "Ground-Mounted", capacity: 15, unit: "MW", location: "Thanjavur, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "15 MW solar park under development in Thanjavur's fertile delta region." },
-  { id: 33, client: "UVMAR Renewable Technology Solutions Global LLP", type: "Ground-Mounted", capacity: 12, unit: "MW", location: "Sivagangai, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "12 MW plant under UVMAR's global LLP arm — advancing the company's owned-asset pipeline." },
-  { id: 34, client: "Torrent Urja 14 Private Limited", type: "Ground-Mounted", capacity: 50, unit: "MW", location: "Pudukkottai, Tamil Nadu", status: "Ongoing", image: IMAGES.ground, desc: "50 MW project for Torrent — under active construction with commissioning targeted for 2025." },
+  { id: 27, client: "Torrent Urja 22 Private Limited", type: "Ground-Mounted", capacity: 15, unit: "MW", location: "Viluppuram, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "15 MW plant currently under construction for Torrent's growing South India renewables portfolio." },
+  { id: 28, client: "TrueRE Surya Private Limited", type: "Ground-Mounted", capacity: 100, unit: "MW", location: "Tuticorin, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "100 MW large-scale project underway — set to become one of UVMAR's largest commissions." },
+  { id: 29, client: "UVMAR Green Energie 9 Private Limited", type: "Ground-Mounted", capacity: 3, unit: "MW", location: "Viluppuram, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "3 MW plant under UVMAR's own development pipeline in Viluppuram district." },
+  { id: 30, client: "Torrent Urja 35 Private Limited", type: "Ground-Mounted", capacity: 3, unit: "MW", location: "Ramanathapuram, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "3 MW solar project in Ramanathapuram, expanding Torrent's captive generation capacity." },
+  { id: 31, client: "Jain Green Technologies Private Limited", type: "Ground-Mounted", capacity: 7, unit: "MW", location: "Ramanathapuram, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "7 MW plant currently in construction phase." },
+  { id: 32, client: "Ultron Solar Park", type: "Ground-Mounted", capacity: 15, unit: "MW", location: "Thanjavur, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "15 MW solar park under development in Thanjavur's fertile delta region." },
+  { id: 33, client: "UVMAR Renewable Technology Solutions Global LLP", type: "Ground-Mounted", capacity: 12, unit: "MW", location: "Sivagangai, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "12 MW plant under UVMAR's global LLP arm — advancing the company's owned-asset pipeline." },
+  { id: 34, client: "Torrent Urja 14 Private Limited", type: "Ground-Mounted", capacity: 50, unit: "MW", location: "Pudukkottai, Tamil Nadu", status: "Ongoing", year: 2026, image: IMAGES.ground, desc: "50 MW project for Torrent under active construction." },
 
   // ── ROOFTOP · COMPLETED ───────────────────────────────────────────────────
   { id: 35, client: "Sundaram Auto Components Limited", type: "Rooftop", capacity: 744, unit: "KW", location: "Hosur, Tamil Nadu", status: "Completed", image: IMAGES.rooftop, desc: "744 KW rooftop system on a major auto components plant — cutting peak power costs significantly." },
@@ -88,9 +89,9 @@ const ALL_PROJECTS: Project[] = [
 ];
 
 const TYPE_FILTERS = ["All", "Ground-Mounted", "Rooftop", "Liaisoning"] as const;
-const STATUS_FILTERS = ["All Status", "Completed", "Ongoing"] as const;
 type TypeFilter = typeof TYPE_FILTERS[number];
-type StatusFilter = typeof STATUS_FILTERS[number];
+const ONGOING_PROJECTS = ALL_PROJECTS.filter((project) => project.status === "Ongoing");
+const COMPLETED_PROJECTS = ALL_PROJECTS.filter((project) => project.status === "Completed");
 
 function capacityMW(p: Project) {
   return p.unit === "KW" ? p.capacity / 1000 : p.capacity;
@@ -102,14 +103,12 @@ function capacityLabel(p: Project) {
 
 export default function Projects() {
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("All");
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>("All Status");
 
   const filtered = useMemo(() =>
-    ALL_PROJECTS.filter(p =>
-      (typeFilter === "All" || p.type === typeFilter) &&
-      (statusFilter === "All Status" || p.status === statusFilter)
+    COMPLETED_PROJECTS.filter(p =>
+      typeFilter === "All" || p.type === typeFilter
     ),
-    [typeFilter, statusFilter]
+    [typeFilter]
   );
 
   const totalMW = useMemo(() =>
@@ -118,16 +117,10 @@ export default function Projects() {
   );
 
   const typeCounts = useMemo(() => ({
-    "All": ALL_PROJECTS.length,
-    "Ground-Mounted": ALL_PROJECTS.filter(p => p.type === "Ground-Mounted").length,
-    "Rooftop": ALL_PROJECTS.filter(p => p.type === "Rooftop").length,
-    "Liaisoning": ALL_PROJECTS.filter(p => p.type === "Liaisoning").length,
-  }), []);
-
-  const statusCounts = useMemo(() => ({
-    "All Status": ALL_PROJECTS.length,
-    "Completed": ALL_PROJECTS.filter(p => p.status === "Completed").length,
-    "Ongoing": ALL_PROJECTS.filter(p => p.status === "Ongoing").length,
+    "All": COMPLETED_PROJECTS.length,
+    "Ground-Mounted": COMPLETED_PROJECTS.filter(p => p.type === "Ground-Mounted").length,
+    "Rooftop": COMPLETED_PROJECTS.filter(p => p.type === "Rooftop").length,
+    "Liaisoning": COMPLETED_PROJECTS.filter(p => p.type === "Liaisoning").length,
   }), []);
 
   const states = ["Tamil Nadu", "Karnataka", "Haryana", "Delhi", "Goa"];
@@ -159,24 +152,78 @@ export default function Projects() {
         </div>
       </section>
 
+      {/* Ongoing Projects */}
+      <section className="py-24 bg-card border-b border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-12 h-[2px] bg-gold block" />
+                <span className="text-gold uppercase tracking-widest text-xs font-bold">In Progress</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-display font-medium mb-5">Ongoing Projects</h2>
+              <p className="text-muted-foreground text-lg font-light leading-relaxed">
+                Current ground-mounted solar work across Tamil Nadu, with the project year shown for every active engagement.
+              </p>
+            </div>
+            <div className="border-l-2 border-gold pl-5 py-1">
+              <div className="text-4xl font-display font-medium">{ONGOING_PROJECTS.length}</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Active Projects</div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {ONGOING_PROJECTS.map((project, i) => (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: Math.min(i * 0.05, 0.25) }}
+                className="border border-border bg-background p-6 flex flex-col min-h-[300px] hover:border-gold transition-colors"
+              >
+                <div className="flex items-center justify-between gap-4 mb-8">
+                  <span className="inline-flex items-center gap-1.5 bg-gold text-background text-[10px] font-bold uppercase tracking-widest px-3 py-1.5">
+                    <Clock className="w-3 h-3" aria-hidden="true" /> Ongoing
+                  </span>
+                  <span className="font-display text-2xl font-medium text-gold">{project.year}</span>
+                </div>
+                <h3 className="text-xl font-display font-medium leading-snug mb-4">{project.client}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-8">{project.desc}</p>
+                <div className="mt-auto pt-5 border-t border-border space-y-3">
+                  <div className="flex items-center text-muted-foreground text-xs font-medium">
+                    <MapPin className="w-3.5 h-3.5 mr-2 text-primary shrink-0" />
+                    <span>{project.location}</span>
+                  </div>
+                  <div className="flex items-center text-muted-foreground text-xs font-medium">
+                    <Zap className="w-3.5 h-3.5 mr-2 text-primary shrink-0" />
+                    {capacityLabel(project)} Capacity
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Strip */}
       <section className="bg-background border-b border-border">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
             <div className="py-8 px-4 text-center">
               <div className="text-4xl font-display font-medium mb-1">{ALL_PROJECTS.length}</div>
-              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Projects Delivered</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Total Portfolio</div>
             </div>
             <div className="py-8 px-4 text-center">
               <div className="text-4xl font-display font-medium mb-1">{Math.round(totalMW).toLocaleString()}+ <span className="text-xl">MW</span></div>
-              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Capacity Installed</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Portfolio Capacity</div>
             </div>
             <div className="py-8 px-4 text-center">
               <div className="text-4xl font-display font-medium mb-1">{states.length}</div>
               <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">States Covered</div>
             </div>
             <div className="py-8 px-4 text-center">
-              <div className="text-4xl font-display font-medium mb-1">{statusCounts["Completed"]}</div>
+              <div className="text-4xl font-display font-medium mb-1">{COMPLETED_PROJECTS.length}</div>
               <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Completed Assets</div>
             </div>
           </div>
@@ -187,6 +234,10 @@ export default function Projects() {
       <section className="py-6 bg-card border-b border-border sticky top-16 z-30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col md:flex-row gap-6 justify-between items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">Delivered Portfolio</p>
+              <p className="text-lg font-display font-medium">Completed Projects</p>
+            </div>
             <div className="flex flex-wrap gap-2 justify-center">
               {TYPE_FILTERS.map(f => (
                 <button
@@ -199,24 +250,6 @@ export default function Projects() {
                   }`}
                 >
                   {f} <span className="opacity-60 ml-1">({typeCounts[f as keyof typeof typeCounts]})</span>
-                </button>
-              ))}
-            </div>
-            <div className="w-px h-8 bg-border hidden md:block" />
-            <div className="flex flex-wrap gap-2 justify-center">
-              {STATUS_FILTERS.map(f => (
-                <button
-                  key={f}
-                  onClick={() => setStatusFilter(f)}
-                  className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors border ${
-                    statusFilter === f
-                      ? f === "Ongoing"
-                        ? "bg-gold text-background border-gold"
-                        : "bg-primary text-background border-primary"
-                      : "bg-background text-muted-foreground border-border hover:border-foreground hover:text-foreground"
-                  }`}
-                >
-                  {f} {f !== "All Status" && <span className="opacity-60 ml-1">({statusCounts[f as keyof typeof statusCounts]})</span>}
                 </button>
               ))}
             </div>
@@ -286,7 +319,7 @@ export default function Projects() {
               <p className="text-muted-foreground text-lg">No projects found matching your criteria.</p>
               <Button 
                 variant="outline" 
-                onClick={() => { setTypeFilter("All"); setStatusFilter("All Status"); }}
+                onClick={() => setTypeFilter("All")}
                 className="mt-4 rounded-none uppercase tracking-widest text-xs font-bold"
               >
                 Clear Filters

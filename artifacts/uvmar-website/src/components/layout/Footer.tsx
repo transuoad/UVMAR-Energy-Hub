@@ -78,13 +78,6 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-primary shrink-0" />
                 <a href="mailto:info@uvmar.in" className="hover:text-primary transition-colors">info@uvmar.in</a>
               </li>
-              <li className="flex items-start gap-3 text-secondary-foreground/80 text-sm">
-                <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span className="flex flex-col gap-1">
-                  <a href="mailto:Sadam@uvmar.in" className="hover:text-primary transition-colors">Sadam@uvmar.in</a>
-                  <a href="mailto:mahesh@uvmar.in" className="hover:text-primary transition-colors">mahesh@uvmar.in</a>
-                </span>
-              </li>
             </ul>
           </div>
         </div>

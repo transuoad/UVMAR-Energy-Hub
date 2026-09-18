@@ -10,6 +10,7 @@ import {
   GraduationCap,
   Landmark,
   Target,
+  UserRound,
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -204,10 +205,11 @@ export default function About() {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {[
               { name: "L Uday Mehta", title: "Managing Partner", image: asset("/images/leader-l-uday-mehta.png") },
               { name: "Uday Vinay Mehta", title: "Managing Partner", image: asset("/images/leader-uday-vinay-mehta.png") },
+              { name: "Aashana Vinay Metha", title: "Director", image: null },
             ].map((leader, i) => (
               <motion.div
                 key={i}
@@ -218,11 +220,18 @@ export default function About() {
                 className="group"
               >
                 <div className="aspect-[4/5] overflow-hidden bg-border/50 border border-border mb-6">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-full h-full object-cover object-top mix-blend-multiply opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
-                  />
+                  {leader.image ? (
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-full object-cover object-top mix-blend-multiply opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-card text-center p-8">
+                      <UserRound className="w-16 h-16 text-primary mb-5" strokeWidth={1} aria-hidden="true" />
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Portrait forthcoming</p>
+                    </div>
+                  )}
                 </div>
                 <h3 className="text-2xl font-display font-medium mb-2">{leader.name}</h3>
                 <p className="text-primary font-bold uppercase tracking-widest text-xs">{leader.title}</p>

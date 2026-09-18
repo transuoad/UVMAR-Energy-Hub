@@ -156,27 +156,6 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
-                  <Mail className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
-                  <div>
-                    <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Sales Email</h3>
-                    <div className="flex flex-col items-start gap-1 text-sm">
-                      <a
-                        href="mailto:Sadam@uvmar.in"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        Sadam@uvmar.in
-                      </a>
-                      <a
-                        href="mailto:mahesh@uvmar.in"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        mahesh@uvmar.in
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6 border-l-2 border-border pl-6 py-2">
                   <Clock className="w-6 h-6 text-foreground mt-1" strokeWidth={1.5} />
                   <div>
                     <h3 className="font-bold uppercase tracking-widest text-xs mb-2">Operating Hours</h3>
