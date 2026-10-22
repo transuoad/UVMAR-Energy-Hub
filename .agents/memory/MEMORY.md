@@ -1,0 +1,1 @@
+- [Solar park source interpretation](solar-park-sources.md) — allocation totals and engineering drawing capacities serve different purposes; do not infer park mappings.

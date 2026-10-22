@@ -116,3 +116,12 @@
     linear-gradient(to right, hsl(0 0% 100% / 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
 }
+
+.viewer-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem; border: 1px solid hsl(var(--border));
+  background: hsl(var(--background)); transition: background-color .2s, color .2s;
+}
+.viewer-btn:hover { background: hsl(var(--accent)); }
+.viewer-btn:disabled { opacity: .35; pointer-events: none; }
+.viewer-btn:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
